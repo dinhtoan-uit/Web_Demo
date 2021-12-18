@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+<meta  content="charset=UTF-8" />
+<title>ABNOMALY DETECTION</title>
+<style>
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center
+  }
+  img {
+    max-width: 70%;
+  }
+  .image {
+    flex-basis: 10%;
+  }
+  .text {
+    font-size: 10px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-left: 0px;
+    text-align: center;
+    color: midnightblue;
+  }
+  .title1 {
+    font-size: 15px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-left: 0px;
+    text-align: center;
+    color: midnightblue;
+  }
+  .title2 {
+    font-size: 13px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-left: 0px;
+    text-align: center;
+    color: midnightblue;
+  }
+  .form {
+    position: relative;
+    align-items: center;
+    text-align: center;
+    padding: 10px 10px 0px 10px;
+    width: 100%;
+    bottom: 100px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+  .footer {
+    position: fixed;
+    width: 100%;
+    font-size: 10px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding: 10px 10px 0px 10px;
+    bottom: 0;
+    color: steelblue;
+  }
+</style>
+</head>
+<body style="background-color:powderblue;">
+  <div class="container">
+    <div class="image">
+      <img src="https://i.imgur.com/eZ6wmPb.jpg">
+    </div>
+    <div class="text">
+      <h1>ĐẠI HỌC QUỐC GIA TP. HỒ CHÍ MINH<br>ĐẠI HỌC CÔNG NGHỆ THÔNG TIN<br></h1>
+    </div>
+  </div>
+  
+  <div class="title1">
+    <div class="title1">
+      <h1>BẢO VỆ KHÓA LUẬN TỐT NGHIỆP</h1>
+    </div>
+    <div class="title2">
+      <h1>WEB DEMO PHÁT HIỆN BẤT THƯỜNG TRONG VIDEO</h1>
+    </div>
+  </div>
+
+  <p>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <p>
+        {% for message in messages %}
+        <li style="text-align: center;">{{ message }}</li>
+        {% endfor %}
+    </p>
+    {% endif %}
+    {% endwith %}
+  </p>
+
+  {% if filename %}
+    {% if flag %}
+      <div class="video_feed" style="text-align: center;">
+        <div style="margin: 10px auto;">
+          <img src="{{ url_for('video_feed') }}" width="30%">
+        </div>
+      </div>
+    {% else %}
+      <div>
+        <div style="margin: 10px auto; text-align: center; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; size: 20px; color: darkblue;">
+          <p>NO ABNOMALY FOUND</p>
+        </div>
+      </div>
+    {% endif %}
+  {% endif %}
+  
+  <div class="form">
+    <form method="post" action="/" enctype="multipart/form-data">
+      <input type = "file" name = "file" style="font-size: 15px;"/>
+      <input type = "submit" style="font-size: 15px;"/>
+    </form>
+  </div>
+  
+
+  <div class="footer" style="margin-top: 20px;">
+    <p style="text-align: center;"><i>@ Thực hiện bởi Vũ Ngọc Tú - 18520184 và Đinh Thanh Toàn - 18521504.</i></p>
+  </div>
+
+</html> 
